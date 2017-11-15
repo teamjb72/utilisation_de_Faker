@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Arbe</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ arbe.id }}</td>
+            </tr>
+            <tr>
+                <th>Denomination</th>
+                <td>{{ arbe.denomination }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ arbe.poids }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('arbe_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('arbe_edit', { 'id': arbe.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

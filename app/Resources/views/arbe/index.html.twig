@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Arbes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Denomination</th>
+                <th>Poids</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arbe in arbes %}
+            <tr>
+                <td><a href="{{ path('arbe_show', { 'id': arbe.id }) }}">{{ arbe.id }}</a></td>
+                <td>{{ arbe.denomination }}</td>
+                <td>{{ arbe.poids }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('arbe_show', { 'id': arbe.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('arbe_edit', { 'id': arbe.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('arbe_new') }}">Create a new arbe</a>
+        </li>
+    </ul>
+{% endblock %}
